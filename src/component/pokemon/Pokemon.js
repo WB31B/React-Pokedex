@@ -1,24 +1,18 @@
 import './Pokemon.css';
 
-const Pokemon = ({pokemon, loading}) => {
+const Pokemon = ({itemId, itemImg, itemName, itemType}) => {
+
+  const style = `pokemon ${itemType}`
+
   return (
-    <>
-      {
-        loading ? <h1>Loading...</h1> : pokemon.map((item) => {
-          return (
-            <>
-              <div className='pokemon'>
-                <h2 className='pokemon-id'>#{item.id}</h2>
-                <div className="pokemon__info">
-                  <img className='pokemon-image' src={item.sprites.front_default} alt="" />
-                  <h2 className='pokemon-name'>{item.name}</h2>
-                </div>
-              </div>
-            </>
-          )
-        })
-      }
-    </>
+    <div className={style} >
+      <h2 className='pokemon-id'>#{itemId}</h2>
+      <div className="pokemon__info">
+        <img className='pokemon-image' src={itemImg} alt={itemName} />
+        <h2 className='pokemon-name'>{itemName}</h2>
+        <p className='pokemon-type'>Type: {itemType}</p>
+      </div>
+    </div>
   )
 }
 

@@ -7,10 +7,17 @@
   margin-bottom: 20px;
 }
 
+.container-current {
+  display: flex;
+  justify-content: center;
+}
+
 .container-pokemons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  margin-top: 20px;
 }
 
 .container-btn {
