@@ -9,12 +9,11 @@ import PokemonInfo from '../pokemonInfo/PokemonInfo';
 const PokemonList = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [nextUrl, setNextUrl] = useState();
-  const [prevUrl, setPrevUrl] = useState();
+  const [nextUrl, setNextUrl] = useState(null);
+  const [prevUrl, setPrevUrl] = useState(null);
+  const [nowUrl, setNowUrl] = useState(null);
 
-  const [limit, setLimit] = useState(10);
-
-  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}`);
+  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10`);
 
 
   const onRequest = async () => {
@@ -25,6 +24,8 @@ const PokemonList = () => {
     setNextUrl(res.data.next); // next
     setPrevUrl(res.data.previous); // previous
     getPokemon(res.data.results);
+
+    console.log(res);
 
     setLoading(false);
   }
@@ -51,18 +52,17 @@ const PokemonList = () => {
         <div className="container-current">
           <button onClick={() => {
             setPokemonData([])
-            setUrl(`https://pokeapi.co/api/v2/pokemon/?limit=10`);
+            setUrl(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10`);
           }} className='btn'>10</button>
 
           <button onClick={() => {
             setPokemonData([])
-            setUrl(`https://pokeapi.co/api/v2/pokemon/?limit=20`);
+            setUrl(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`);
           }} className='btn'>20</button>
 
           <button onClick={() => {
             setPokemonData([])
-
-            setUrl(`https://pokeapi.co/api/v2/pokemon/?limit=50`);
+            setUrl(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=50`);
           }} className='btn'>50</button>
 
         </div>
