@@ -3,19 +3,23 @@ import PropTypes from "prop-types";
 
 import Pokemon from "../pokemon/Pokemon";
 
-function PokemonInfo({ pokemon }) {
-  return pokemon.map((item) => {
-    return (
-      <div key={item.id}>
-        <Pokemon
-          itemId={item.id}
-          itemImg={item.sprites.front_default}
-          itemName={item.name}
-          itemType={item.types[0].type.name}
-        />
-      </div>
-    );
-  });
+function PokemonInfo({ pokemon, loading }) {
+  return loading === true ? (
+    <h1>Loading</h1>
+  ) : (
+    pokemon.map((item) => {
+      return (
+        <div key={item.id}>
+          <Pokemon
+            itemId={item.id}
+            itemImg={item.sprites.front_default}
+            itemName={item.name}
+            itemType={item.types[0].type.name}
+          />
+        </div>
+      );
+    })
+  );
 }
 
 PokemonInfo.defaultProps = {
