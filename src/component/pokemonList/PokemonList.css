@@ -20,6 +20,24 @@
   margin-top: 20px;
 }
 
+.container-search {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container-form {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+.container-search input {
+  width: 250px;
+  font-size: 24px;
+  border: none;
+}
+
 .container-btn {
   display: flex;
   justify-content: center;

@@ -1,8 +1,10 @@
+import React from "react";
+
 import PokemonList from "./component/pokemonList/PokemonList";
 
-import './App.css';
+import "./App.css";
 
-const App = () =>  {
+function App() {
   return (
     <div className="app">
       <PokemonList />

@@ -13,3 +13,8 @@ button {
   border: none;
   cursor: pointer;
 }
+
+input:focus {
+  outline: 0;
+  outline-offset: 0;
+}
